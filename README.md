@@ -49,3 +49,4 @@ Estruturas de Dados - Nina Edelweiss e Renata Galante
 
 Estruturas de Dados em C, Uma Abordagem Didática - Sílvio Pereira
 
+Introdução a Estruturas de Dados - Com Técnicas de Programação em C - Waldemar Celes
