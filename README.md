@@ -33,7 +33,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 
 |     N |    prazo | descrição
 | ----: | -------: | :-----------
-|    t1 |          | [cadastro de alunos](Trabalhos/t1.md)
+|    t1 |          | [cálculo de notas](Trabalhos/t1.md)
 
 
 ## Ementa
