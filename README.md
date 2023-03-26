@@ -26,7 +26,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    N |   data | assunto
 | ---: | :----: | :--------
 |    1 | 20mar  | introdução / revisão
-|    2 | 22mar  | revisão
+|    2 | 22mar  | revisão de C
 
 ## Exercícios e trabalhos
 
