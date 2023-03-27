@@ -27,6 +27,7 @@ Os assuntos vistos em aula serão listados aqui.
 | ---: | :----: | :--------
 |    1 | 20mar  | introdução / revisão
 |    2 | 22mar  | revisão de C
+|    3 | 27mar  | [tipos abstratos de dados](Aulas/tad.md)
 
 ## Exercícios e trabalhos
 
@@ -52,3 +53,5 @@ Estruturas de Dados - Nina Edelweiss e Renata Galante
 Estruturas de Dados em C, Uma Abordagem Didática - Sílvio Pereira
 
 Introdução a Estruturas de Dados - Com Técnicas de Programação em C - Waldemar Celes
+
+Estrutura de Dados - Adriana de S. Vetorazzo, Mauício de O. Saraiva, Jeanine dos S. Barreto, Ramiro S. Córdova Jr.
