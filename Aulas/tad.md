@@ -105,6 +105,8 @@ O arquivo `data.c`
    void data_teste(void)
    {
      Data d1;
+     d1 = data_cria(29,2,2023);
+     assert(d1 == NULL);
      d1 = data_cria(27,3,2023);
      assert(d1 != NULL);
      assert(data_dia(d1) == 27);
