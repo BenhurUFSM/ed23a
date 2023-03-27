@@ -124,7 +124,7 @@ O arquivo `data.c`
    }
    #endif // TESTE
    
-   // retorna true se for data válida
+   // função auxiliar que retorna true se for data válida
    static bool data_ok(int d, int m, int a)
    {
      // testes para ver se d/m/a constituem uma data válida
