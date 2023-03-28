@@ -36,7 +36,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 |     N |    prazo | descrição
 | ----: | -------: | :-----------
 |    t1 |      --- | [cálculo de notas](Trabalhos/t1.md) [[exemplo de implementação](Trabalhos/t1-ed23a.c)]
-|    t2 |          | TAD string (descrição em breve)
+|    t2 |          | [TAD string](Trabalhos/t2.md)
 
 
 ## Ementa
