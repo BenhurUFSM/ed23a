@@ -1,11 +1,11 @@
 // str.h
 // -----
 // interface para o TAD Str (para a disciplina ed23a)
-// parte I
 //
 // alterações:
 //    3abr inclusão de stdio.h
 //         str_altera deveria ser void
+//    3abr adição de str_numbytes, para parte II
 
 // não altere este arquivo
 
@@ -39,6 +39,9 @@ void str_destroi(Str s);
 
 // retorna o número de caracteres na string (equivalente a strlen)
 int str_tam(Str s);
+
+// retorna o número de bytes na string (maior que str_tam quando contiver caracteres não ASCII)
+int str_numbytes(Str s);
 
 // retorna o i-ésimo caractere de 's' ou -1 se 'i' além dos limites
 // valores negativos de 'i' referem-se ao final de 's' (-1 é o último caractere,
