@@ -2,6 +2,10 @@
 // -----
 // interface para o TAD Str (para a disciplina ed23a)
 // parte I
+//
+// alterações:
+//    3abr inclusão de stdio.h
+//         str_altera deveria ser void
 
 // não altere este arquivo
 
@@ -10,6 +14,7 @@
 #define _STR_H_
 
 #include <stdbool.h>
+#include <stdio.h>
 
 // o tipo de dados opaco (Str é um ponteiro para uma struct desconhecida chamada _str)
 typedef struct _str *Str;
@@ -60,7 +65,7 @@ bool str_igual(Str s, Str o);
 // se 'p' antes do início de 's', deve ser tratado cono logo antes do início
 // valores negativos de 'p' referem-se ao final de 's' (-1 é logo após o final de 's',
 //  -2 logo antes do último caractere, etc.)
-Str str_altera(Str s, int p, int n, Str o);
+void str_altera(Str s, int p, int n, Str o);
 
 #ifdef TESTE
 // testa o TAD
