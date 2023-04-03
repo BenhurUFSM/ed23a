@@ -28,6 +28,8 @@ Os assuntos vistos em aula serão listados aqui.
 |    1 | 20mar  | introdução / revisão
 |    2 | 22mar  | revisão de C
 |    3 | 27mar  | [tipos abstratos de dados](Aulas/tad.md)
+|    4 | 29mar  | TAD, cont.
+|    5 |  3abr  | [listas lineares](Aulas/listas_lineares.md)
 
 ## Exercícios e trabalhos
 
