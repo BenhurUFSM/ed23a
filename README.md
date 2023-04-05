@@ -30,6 +30,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    3 | 27mar  | [tipos abstratos de dados](Aulas/tad.md)
 |    4 | 29mar  | TAD, cont.
 |    5 |  3abr  | [listas lineares](Aulas/listas.md)
+|    6 |  5abr  | [listas encadeadas](Aulas/listas_encadeadas.md)
 
 ## Exercícios e trabalhos
 
