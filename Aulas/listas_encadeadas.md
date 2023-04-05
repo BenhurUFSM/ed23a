@@ -160,3 +160,7 @@ void insere_pos(Lista l, dado_t d, int p)
   l->prox[novo] = dep;
 }
 ```
+
+#### Exercícios
+
+Faça as funções de remoção, teste a lista.
