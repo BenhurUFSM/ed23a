@@ -31,7 +31,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    4 | 29mar | TAD, cont.
 |    5 |  3abr | [listas lineares](Aulas/listas.md)
 |    6 |  5abr | [listas encadeadas](Aulas/listas_encadeadas.md)
-|    7 | 10abr | [listas encadeadas, alocação individual](Aulas/lista_encadeada_com_ponteiro.md)
+|    7 | 10abr | [listas encadeadas, alocação individual](Aulas/lista_encadeada_com_ponteiros.md)
 
 ## Exercícios e trabalhos
 
