@@ -55,6 +55,22 @@ Exemplo de implementação parcial de lista encadeada com alocação individual:
      free(l);
    }
 
+   bool lista_vazia(Lista l)
+   {
+     return l->prim == NULL;
+   }
+   
+   // função auxiliar para alocar e inicializar um nó
+   static nodo *cria_nodo(dado_t d, nodo *prox)
+   {
+     nodo *no = malloc(sizeof(nodo));
+     if (no != NULL) {
+       no->dado = d;
+       no->prox = prox;
+     }
+     return no;
+   }
+   
    void lista_insere_inicio(Lista l, dado_t d)
    {
      // aloca um nó par conter o novo dado. 
@@ -113,7 +129,7 @@ Exemplo de implementação parcial de lista encadeada com alocação individual:
 	return;
      }
      // acha o nó na posição anterior à inserção
-     nodo *antirior = lista_nodo_pos(l, pos-1);
+     nodo *anterior = lista_nodo_pos(l, pos-1);
      if (anterior == NULL) return;
      // nó na posição seguinte à inserção
      nodo *seguinte = anterior->prox;
@@ -128,4 +144,5 @@ Exemplo de implementação parcial de lista encadeada com alocação individual:
 #### Exercícios
 
 1. Implementa as funções de remoção
+2. Teste a lista
 
