@@ -1,6 +1,7 @@
+#### Listas encadeadas com alocação individual
 
-
-A alocação pode ser um pouco otimizada, colocando os valores dos sucessores junto a cada dado, e alocando um só vetor.
+Quando a lista é encadeada, não necessitamos movimentar fisicamente na memória os dados que já estão na lista, mesmo na implementação de operações que altere a posição desses dados na lista.
+Com a alocação contígua dos dados, entretanto, ainda resta o problema de se manter alocada memória no vetor além das necessidades da lista.
 
 Uma outra possibilidade de alocação de memória é alocar cada dado individualmente, e só manter alocados os que estão efetivamente em uso pela lista. Quando um dado é removido, a memória ocupada por ele é liberada. O gerenciamento de memória fica com o sistema de alocação de memória e não mais com a lista. Nesse caso, um dado pode estar em qualquer posição da memória, e sua posição é mantida por um ponteiro e não por um índice.
 Para cada posição, deve-se guardar, além do dado, a informação de sucessor (um ponteiro para o dado seguinte).
@@ -12,30 +13,29 @@ Nessa implementação, não vamos ter memória desperdiçada com espaço não us
 
 Uma implementação possível para a interface de lista vista antes, usando lista encadeada com alocação individual poderia ser:
 ```c
-   #include "lista.h"
+   /// lista.c
+   #include "lista.h"  // contém  "typedef struct _lista *Lista;"
 
    // a estrutura para conter um nó -- contém um dado e um ponteiro para o próximo nó
    // essa estrutura é interna à implementação da lista
-   typedef struct no_t no_t;
-   struct no_t {
-     dado_t d;
-     no_t *prox;
+   typedef struct _nodo nodo;
+   struct _nodo {
+     dado_t dado;
+     nodo *prox;
    };
 
    // a estrutura para o descritor da lista -- contém um ponteiro para o nó que contém o primeiro dado da lista
    typedef struct _lista {
-     int num;
-     no_t *prim;
+     nodo *prim;
    } lista;
       
-   Lista lista_cria(int cap)
+   Lista lista_cria(void)
    {
-     // cria uma lista vazia -- ignora a capacidade, a lista poderá conter tantos nós quantos couberem na memória
-     // poderia também guardar a capacidade e limitar o número máximo de dados na lista
+     // cria uma lista vazia
      Lista l;
      l = malloc(sizeof(lista));
      if (l != NULL) {
-       l->num = 0;
+       // a lista está vazia, o primeiro elemento é representado por NULL
        l->prim = NULL;
      }
      return l;
@@ -44,34 +44,40 @@ Uma implementação possível para a interface de lista vista antes, usando list
    void lista_destroi(Lista l)
    {
      // precisa liberar a memória de cada nó, e do descritor
-     no_t *no = l->prim;
+     nodo *no = l->prim;
      while (no != NULL) {
        // salva o ponteiro que está dentro do nó, não podemos acessar o conteúdo do nó depois do free
-       no_t *aux = no->prox;
+       nodo *aux = no->prox;
        free(no);
        no = aux;
      }
      free(l);
    }
-      
-   int lista_num_elem(Lista l)
+
+   void lista_insere_inicio(Lista l, dado_t d)
    {
-     return l->num;
+     // aloca um nó par conter o novo dado. 
+     // esse nó estará no início da lista, então o nó seguinte a ele é o nó que atualmente é o primeiro da lista
+     nodo *novo = cria_nodo(d, l->prim);
+     // se deu certo, o novo nó é o novo primeiro
+     if (novo != NULL) {
+       l->prim = novo;
+     }
    }
 
-   bool lista_dado(Lista l, int pos, dado_t *pd)
+   void lista_insere_fim(Lista l, dado_t d)
    {
-     if (pos < 0 || pos >= l->num) return false;
-     // tem que percorrer a lista, até encontrar o nó na posição pos
-     no_t *no = l->prim; // inicia no primeiro
-     int pos_no = 0;     // ele está na posição 0
-     while (pos_no < pos) {
-       no = no->prox;    // ainda não chegamos na posição desejada, vamos pro próximo
-       pos_no++;         // que está na próxima posição
+     // se a lista estiver vazia, insere no início
+     if (lista_vazia(l)) {
+       lista_insere_inicio(l, d);
      }
-     // 'no' aponta para o nó que tem o dado na posição pos -- copia o dado pra quem chamou
-     *pd = no->d;
-     return true;
+     // aloca um nó par conter o novo dado. 
+     // esse nó estará no início da lista, então o nó seguinte a ele é o nó que atualmente é o primeiro da lista
+     nodo *novo = cria_nodo(d, l->prim);
+     // se deu certo, o novo nó é o novo primeiro
+     if (novo != NULL) {
+       l->prim = novo;
+     }
    }
 
    bool lista_insere(Lista l, int pos, dado_t d)
