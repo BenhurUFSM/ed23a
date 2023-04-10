@@ -11,7 +11,8 @@ Nossa lista posa a ter então dois tipos de dados: uma estrutura que mantém inf
 
 Nessa implementação, não vamos ter memória desperdiçada com espaço não usado pela lista, mas em compensação tem memória extra gasta pelo sistema de gerenciamento de memória, que vai gerenciar um número maior de alocações.
 
-Uma implementação possível para a interface de lista vista antes, usando lista encadeada com alocação individual poderia ser:
+Exemplo de implementação parcial de lista encadeada com alocação individual:
+
 ```c
    /// lista.c
    #include "lista.h"  // contém  "typedef struct _lista *Lista;"
@@ -122,6 +123,7 @@ Uma implementação possível para a interface de lista vista antes, usando list
      // o novo nó está depois do nó anterior
      anterior->prox = novo;
    }
+```
 
 #### Exercícios
 
