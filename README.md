@@ -23,14 +23,15 @@ Para quem precisar, o exame será uma prova escrita.
 
 Os assuntos vistos em aula serão listados aqui.
 
-|    N |   data | assunto
-| ---: | :----: | :--------
-|    1 | 20mar  | introdução / revisão
-|    2 | 22mar  | revisão de C
-|    3 | 27mar  | [tipos abstratos de dados](Aulas/tad.md)
-|    4 | 29mar  | TAD, cont.
-|    5 |  3abr  | [listas lineares](Aulas/listas.md)
-|    6 |  5abr  | [listas encadeadas](Aulas/listas_encadeadas.md)
+|    N |  data | assunto
+| ---: | :---: | :--------
+|    1 | 20mar | introdução / revisão
+|    2 | 22mar | revisão de C
+|    3 | 27mar | [tipos abstratos de dados](Aulas/tad.md)
+|    4 | 29mar | TAD, cont.
+|    5 |  3abr | [listas lineares](Aulas/listas.md)
+|    6 |  5abr | [listas encadeadas](Aulas/listas_encadeadas.md)
+|    7 | 10abr | [listas encadeadas, alocação individual](Aulas/listas_encadeadas_com_ponteiro.md)
 
 ## Exercícios e trabalhos
 
