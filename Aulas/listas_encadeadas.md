@@ -1,4 +1,4 @@
-### Listas encadeadas
+### Listas encadeadas com alocação contígua
 
 Nas implementações contíguas, a ordem física em que os dados da lista são mantidos em memória corresponde à ordem lógica desses dados na lista.
 Sabendo a posição de um dos dados, com um cálculo simples se obtém a posição de qualquer outro.
