@@ -1,6 +1,6 @@
 ### Listas duplamente encadeadas
 
-Por vezes, (em um deque, por exemplo) necessitamos de operações de inclusão e remoção em ambas as pontas da lista, e a lista simplesmente encadeada não tem um desempenho bom o suficiente para todas essas operações. Não é muito difícil de se otimizar para se ter um bom desempenho em três dessas operações, mas não nas quatro.
+Por vezes (em uma fila do tipo deque, por exemplo), necessitamos de operações de inclusão e remoção em ambas as pontas da lista, e a lista simplesmente encadeada não tem um desempenho bom o suficiente para todas essas operações. Não é muito difícil de se otimizar para se ter um bom desempenho em três dessas operações, mas não nas quatro.
 A adição de um segundo encadeamento na lista resolve essa limitação, ao custo de mais memória para armazenar mais um ponteiro em cada nó da lista.
 Cada nó passa a ter dois ponteiros: um que aponta para o próximo elemento da lista (como em uma lista simplesmente encadeada) e um outro que aponta para o elemento anterior.
 Em todas as operações que alteram a lista (inclusão e remoção de elementos), temos que manter atualizados esses dois ponteiros, o que torma a implementação um pouco mais complexa.
