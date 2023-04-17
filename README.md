@@ -46,7 +46,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 
 ## Ementa
 
-Ver [aqui](https://www.ufsm.br/ementario/disciplinas/elc1066/).
+Ver [aqui](https://www.ufsm.br/ementario/disciplinas/ELC1066/).
 
 ## Bibliografia
 
