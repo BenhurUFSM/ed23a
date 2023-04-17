@@ -33,6 +33,7 @@ Os assuntos vistos em aula serão listados aqui.
 |    6 |  5abr | [listas encadeadas](Aulas/listas_encadeadas.md)
 |    7 | 10abr | [listas encadeadas, alocação individual](Aulas/lista_encadeada_com_ponteiros.md)
 |    8 | 12abr | [listas duplamente encadeadas, complementos](Aulas/lista_duplamente_encadeada.md)
+|    9 | 17abr | [matrizes](Aulas/matrizes.md)
 
 ## Exercícios e trabalhos
 
