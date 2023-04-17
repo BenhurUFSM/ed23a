@@ -2,7 +2,7 @@
 
 Matrizes são vetores multidimensionais. 
 Em algumas linguagens, vetores e matrizes só podem ser declarados com tamanho conhecido em tempo de compilação.
-Essa restrição pode ser muito limitante em várias situações mais dinâmicas, em que o programa só sabe das susas necessidades em tempo de execução.
+Essa restrição pode ser muito limitante em várias situações mais dinâmicas, em que o programa só sabe das suas necessidades em tempo de execução.
 
 Em outras linguagens, o tamanho de vetores e matrizes pode ser definido em tempo de execução, mas não pode ser alterado uma vez declarados.
 A linguagem C, a partir da padronização C99 permite esse tipo de declaração, como abaixo:
