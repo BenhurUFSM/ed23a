@@ -126,6 +126,85 @@ void jan_desenha_txt(Jan self)
   tela_lincol(jan_clin_tela(self), jan_ccol_tela(self));
 }
 
+static void jan_trata_char(Jan self, chu tecla)
+{
+  // TODO: implementar
+}
+
+static void jan_backspace(Jan self)
+{
+  // TODO: implementar
+  self->curcol--;
+}
+
+static void jan_delete(Jan self)
+{
+  // TODO: implementar
+}
+
+static void jan_trata_controle(Jan self, chu tecla)
+{
+  switch (tecla) {
+    case c_up:
+      self->curlin--;
+      break;
+    case c_down:
+      self->curlin++;
+      break;
+    case c_left:
+      self->curcol--;
+      break;
+    case c_right:
+      self->curcol++;
+      break;
+    case c_enter:
+      self->curlin++;
+      self->curcol = 0;
+      break;
+    case c_home:
+      self->curcol = 0;
+      break;
+    case c_end:
+      self->curcol = INT_MAX;
+      break;
+    case c_pgdn:
+      self->curlin += jan_nlin_tela(self) * 4/5;
+      break;
+    case c_pgup:
+      self->curlin -= jan_nlin_tela(self) * 4/5;
+      break;
+    case c_back:
+      jan_backspace(self);
+      break;
+    case c_del:
+      jan_delete(self);
+      break;
+    default:
+      break;
+  }
+}
+
+void jan_trata_tecla(Jan self, chu tecla)
+{
+  if (tecla > 0) jan_trata_char(self, tecla);
+  else jan_trata_controle(self, tecla);
+}
+
+/*
+void ctrl_grava(Ctrl self)
+{
+  txt_grava(jan_texto(self->janela_atual));
+}
+
+void ctrl_abre(Ctrl self)
+{
+}
+
+void ctrl_fecha(Ctrl self)
+{
+}
+*/
+
 int main()
 {
   struct _jan j = {0, 0, 2, 0};
@@ -136,34 +215,19 @@ int main()
 	while(1) {	
     int c = tela_le_char();
 		switch(c) {	
-      case c_up:
-        jan->curlin--;
-				break;
-      case c_down:
-        jan->curlin++;
-				break;
-      case c_left:
-        jan->curcol--;
-				break;
-      case c_right:
-        jan->curcol++;
-				break;
-			case c_enter:
-				jan->curlin++;
-        jan->curcol = 0;
-				break;
-      case c_home:
-        jan->curcol = 0;
+      /*
+      case c_save:
+        ctrl_grava(self);
         break;
-      case c_end:
-        jan->curcol = INT_MAX;
+      case c_close:
+        ctrl_fecha(self);
         break;
-      case c_pgdn:
-        jan->curlin += jan_nlin_tela(jan) * 4/5;
+      case c_open:
+        ctrl_abre(self);
         break;
-      case c_pgup:
-        jan->curlin -= jan_nlin_tela(jan) * 4/5;
-        break;
+       */
+      default:
+        jan_trata_tecla(jan, c);
     }
     jan_desenha_txt(jan);
 	}	
