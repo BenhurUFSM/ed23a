@@ -10,6 +10,8 @@ enum {
   cor_selecao,
 };
 
+#define CTRL(c) (c&31)   // CTRL('a') produz o código de ctrl-a
+
 static void tela_inicializa_cores(void)
 {
   if (has_colors() == FALSE) return;
@@ -143,7 +145,9 @@ int tela_le_char(void)
       case KEY_ENTER:
       case '\n':
       case '\r':            return c_enter;
-
+      case CTRL('s'):       return c_save;
+      case CTRL('o'):       return c_open;
+      case CTRL('x'):       return c_close;
       case KEY_MOUSE:
       case KEY_RESIZE:
       default:

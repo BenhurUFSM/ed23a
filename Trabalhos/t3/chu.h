@@ -29,6 +29,9 @@ typedef enum {
   c_right,
   c_up,
   c_down,
+  c_save,
+  c_open,
+  c_close,
   c_primeiro_unicode = 0,
   c_ultimo_unicode = 0x10FFFF,
 } chu;
