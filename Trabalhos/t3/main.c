@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 #include "tela.h"
 
 int min(int a, int b)
@@ -151,6 +152,18 @@ int main()
 				jan->curlin++;
         jan->curcol = 0;
 				break;
+      case c_home:
+        jan->curcol = 0;
+        break;
+      case c_end:
+        jan->curcol = INT_MAX;
+        break;
+      case c_pgdn:
+        jan->curlin += jan_nlin_tela(jan) * 4/5;
+        break;
+      case c_pgup:
+        jan->curlin -= jan_nlin_tela(jan) * 4/5;
+        break;
     }
     jan_desenha_txt(jan);
 	}	
