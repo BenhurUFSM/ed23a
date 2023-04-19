@@ -145,9 +145,14 @@ int tela_le_char(void)
       case KEY_ENTER:
       case '\n':
       case '\r':            return c_enter;
+      case KEY_SAVE:
       case CTRL('s'):       return c_save;
+      case KEY_OPEN:
       case CTRL('o'):       return c_open;
+      case KEY_CLOSE:
       case CTRL('x'):       return c_close;
+      case KEY_SHOME:       return c_previous;
+      case KEY_SEND:        return c_next;
       case KEY_MOUSE:
       case KEY_RESIZE:
       default:

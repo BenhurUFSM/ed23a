@@ -198,10 +198,47 @@ void ctrl_grava(Ctrl self)
 
 void ctrl_abre(Ctrl self)
 {
+  // pede um nome para o arquivo e cria um texto com ele
+  Str nome = ctrl_le_str(self, "Nome do arquivo a abrir: ");
+  Texto txt = txt_cria(nome);
+  if (txt == NULL) {
+    ctrl_msg(self, "Erro na abertura do arquivo");
+  } else {
+    // cria uma nova janela para mostrar o texto
+    Jan nova_jan = jan_cria(txt);
+    if (nova_jan == NULL) {
+      ctrl_msg(self, "Erro na abertura da janela");
+      txt_destroi(txt);
+    } else {
+      // insere a nova janela no final da lista e seleciona ela
+      lista_insere_final(self->janelas, nova_jan);
+      self->njanela_atual = lista_num_elem(self->janelas) - 1;
+      self->janela_atual = nova_jan;
+    }
+  }
+  str_destroi(nome);
 }
 
 void ctrl_fecha(Ctrl self)
 {
+}
+
+void ctrl_janela_seguinte(Ctrl self)
+{
+  self->njanela_atual++;
+  if (self->njanela_atual >= lista_num_elem(self->janelas)) {
+    self->njanela_atual = 0;
+  }
+  self->janela_atual = lista_elem_pos(self->janelas, self->njanela_atual);
+}
+
+void ctrl_janela_anterior(Ctrl self)
+{
+  self->njanela_atual--;
+  if (self->njanela_atual < 0) {
+    self->njanela_atual = lista_num_elem(self->janelas) - 1;
+  }
+  self->janela_atual = lista_elem_pos(self->janelas, self->njanela_atual);
 }
 */
 
@@ -224,6 +261,12 @@ int main()
         break;
       case c_open:
         ctrl_abre(self);
+        break;
+      case c_next:
+        ctrl_janela_seguinte(self);
+        break;
+      case c_previous:
+        ctrl_janela_anterior(self);
         break;
        */
       default:
