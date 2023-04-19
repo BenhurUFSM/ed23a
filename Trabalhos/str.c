@@ -103,7 +103,7 @@ Str str_substr(Str s, int p, int n)
   Str sub = malloc(sizeof(struct _str));
   if (sub == NULL) return NULL;
 
-  ajeita_pos_e_tam_de_substr(r, &p, &n);
+  ajeita_pos_e_tam_de_substr(s, &p, &n);
 
   // aloca memória para os caracteres e copia
   sub->bytes = malloc(sizeof(char)*(n+1));
@@ -141,7 +141,7 @@ bool str_igual(Str s, Str o)
 //  -2 logo antes do último caractere, etc.)
 void str_altera(Str s, int p, int n, Str o)
 {
-  ajeita_pos_e_tam_de_substr(r, &p, &n);
+  ajeita_pos_e_tam_de_substr(s, &p, &n);
 
   // calcula alguns tamanhos
   int tam_org = str_tam(s);
@@ -158,7 +158,7 @@ void str_altera(Str s, int p, int n, Str o)
   strncpy(b, s->bytes, tam_ini);
   strncpy(b+tam_ini, o->bytes, tam_ins);
   strncpy(b+tam_ini+tam_ins, s->bytes+tam_ini+n, tam_fim);
-  b[nb] = '\0';
+  b[tam_novo] = '\0';
 
   // substitui a string original
   free(s->bytes);
