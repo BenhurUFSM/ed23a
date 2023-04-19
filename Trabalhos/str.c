@@ -45,13 +45,17 @@ Str str_cria_linha(FILE *arq)
   bool achei_o_fim_da_linha = false;
   while (!achei_o_fim_da_linha && fgets(s, tam, arq) != NULL) {
     int n = strlen(s);
-    if (s[n] == '\n') {
-      s[n] = '\0';
+    if (s[n-1] == '\n') {
+      s[n-1] = '\0';
       achei_o_fim_da_linha = true;
     }
     Str tmp = str_cria(s);
     str_altera(res, -1, 0, tmp);
     str_destroi(tmp);
+  }
+  if (!achei_o_fim_da_linha && str_tam(res) == 0) {
+    str_destroi(res);
+    return NULL;
   }
   return res;
 }
