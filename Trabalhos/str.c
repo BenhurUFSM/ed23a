@@ -88,34 +88,44 @@ int str_char(Str s, int i)
   return s->bytes[i];
 }
 
+// p é uma posição em s, podendo ser positiva (medida a partir do início)
+//   ou negativa (medida a partir do final)
+// n é o tamanho de uma substring a partir de p
+// esta função corrige p para ser positivo e estar em uma posição
+//   existente de s, e n para representar um tamanho válido em s
 static void ajeita_pos_e_tam_de_substr(Str s, int *p, int *n)
 {
-  // corrige os valores de 'p' e 'n' de acordo com a descrição
   int t = str_tam(s);
   if (*p < 0) {
     // converte posições negativas no equivalente positivo
+    //   se p for -1, vira t; se for -2, vira t-1 etc
     *p = *p + t + 1;
   }
-  // faz p ficar nos limites da string
+  // faz p ficar nos limites da string (entre 0 e t)
   *p = ajusta(*p, 0, t);  // este era o bug em aula, faltava ajustar p
   // faz n ficar nos limites da string
-  *n = ajusta(*n, 0, t-*p);
+  *n = ajusta(*n, 0, t - *p);
 }
 
 Str str_substr(Str s, int p, int n)
 {
+  // cria uma nova Str para conter a substring
   Str sub = malloc(sizeof(struct _str));
   if (sub == NULL) return NULL;
 
+  // corrige p e n para ficarem nos limites de s
   ajeita_pos_e_tam_de_substr(s, &p, &n);
 
-  // aloca memória para os caracteres e copia
+  // aloca memória para os n caracteres mais o '\0'
   sub->bytes = malloc(sizeof(char)*(n+1));
-  if (sub->bytes == 0) {
+  if (sub->bytes == NULL) {
     free(sub);
     return NULL;
   }
+
+  // copia n bytes, a partir da posição p de s para sub
   strncpy(sub->bytes, s->bytes + p, n);
+  // põe o terminador no final de sub
   sub->bytes[n] = '\0';
 
   return sub;
@@ -125,8 +135,10 @@ Str str_substr(Str s, int p, int n)
 // retorna a posição da primeira ocorrência do caractere 'c' em 's' ou -1
 int str_poschar(Str s, int c)
 {
-  for (int i=0; s->bytes[i] != '\0'; i++) {
-    if (s->bytes[i] == c) return i;
+  for (int i=0; ; i++) {
+    int ci = str_char(s, i);
+    if (ci == '\0') break;
+    if (ci == c) return i;
   }
   return -1;
 }
@@ -145,20 +157,25 @@ bool str_igual(Str s, Str o)
 //  -2 logo antes do último caractere, etc.)
 void str_altera(Str s, int p, int n, Str o)
 {
+  // corrige p e n para ficarem nos limites de s
   ajeita_pos_e_tam_de_substr(s, &p, &n);
 
   // calcula alguns tamanhos
   int tam_org = str_tam(s);
   int tam_ini = p;           // caracteres a copiar do início de s
-  int tam_ins = str_tam(o);  // caracteres de o
+  int tam_ins = str_tam(o);  // caracteres a copiar de o
   int tam_fim = tam_org - tam_ini - n; // caracteres do final de s
   int tam_novo = tam_ini + tam_ins + tam_fim;
 
-  // aloca memória e copia
+  // aloca memória para a string resultante
   char *b = malloc(tam_novo+1);
   if (b == NULL) {
     return;  // xi, quem chama não tem como saber que deu errado
   }
+  // copia tam_novo bytes para a nova região:
+  //   tam_ini bytes do início de s
+  //   tam_ins bytes de o e
+  //   tam_fim bytes do final de s
   strncpy(b, s->bytes, tam_ini);
   strncpy(b+tam_ini, o->bytes, tam_ins);
   strncpy(b+tam_ini+tam_ins, s->bytes+tam_ini+n, tam_fim);
