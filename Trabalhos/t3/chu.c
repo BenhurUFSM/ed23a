@@ -1,4 +1,5 @@
 #include "chu.h"
+#include <stddef.h> // para NULL
 
 int utf8_num_bytes(char b)
 {
@@ -97,7 +98,7 @@ char *utf8_nesimo_chu(char *s, int n)
   int ct = 0;
   while (*s != '\0') {
     if (ct == n) return s;
-    s += utf8_num_bytes(*s)
+    s += utf8_num_bytes(*s);
     ct++;
   }
   return NULL;
