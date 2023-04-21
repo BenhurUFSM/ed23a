@@ -21,12 +21,15 @@ typedef struct _str *Str;
 
 // construtores
 
-// cria uma Str a partir de uma string C
+// cria uma Str a partir de uma string C codificada em UTF8
 // ela deve ser destruída pelo usuário mais tarde
 Str str_cria(char *s);
 
-// cria uma Str a partir de um arquivo
-// devo conter todos os caracteres lidos do arquivo, antes de um '\n' ou do final do arquivo
+// cria uma Str a partir de uma linha do arquivo
+// deve conter todos os caracteres lidos do arquivo, antes de um '\n'
+//   ou do final do arquivo
+// retorna NULL caso o arquivo esteja no final ou em caso de erro no acesso
+// o arquivo está codificado em UTF8
 // a Str retornada deve ser destruída pelo usuário mais tarde
 Str str_cria_linha(FILE *arq);
 
@@ -37,22 +40,24 @@ void str_destroi(Str s);
 
 // 
 
-// retorna o número de caracteres na string (equivalente a strlen)
+// retorna o número de caracteres unicode na string (equivalente a strlen)
 int str_tam(Str s);
 
-// retorna o número de bytes na string (maior que str_tam quando contiver caracteres não ASCII)
+// retorna o número de bytes necessários para representar a string em UTF8
 int str_numbytes(Str s);
 
-// retorna o i-ésimo caractere de 's' ou -1 se 'i' além dos limites
+// retorna o i-ésimo caractere unicode de 's' ou -1 se 'i' além dos limites
 // valores negativos de 'i' referem-se ao final de 's' (-1 é o último caractere,
 //   -2 o penúltimo, etc)
 int str_char(Str s, int i);
 
 // retorna uma substring de 's', com os 'n' caracteres a partir da posição 'p'
-// a string retornada pode ter menos de 'n' caracteres se 's' não tiver caracteres suficientes
-// a string retornada pode ser vazia, se 'n' <1 ou se 'p' fora de 's'
-// valores negativos de 'p' referem-se ao final de 's' (-1 é logo após o final de 's',
-//  -2 logo antes do último caractere, etc.)
+// a string retornada pode ter menos de 'n' caracteres se 's' não tiver
+//   caracteres suficientes
+// a string retornada pode ser vazia, se 'n' < 1 ou se 'p' fora de 's'
+// valores negativos de 'p' referem-se ao final de 's'
+//   (-1 é logo após o final de 's', -2 logo antes do último caractere, etc.)
+// posição e tamanho referem-se a caracteres unicode
 // a Str retornada deve ser destruída pelo usuário mais tarde
 Str str_substr(Str s, int p, int n);
 
@@ -66,8 +71,9 @@ bool str_igual(Str s, Str o);
 // valores negativos de 'n' são tratados como 0
 // se 'p' além do final de 's', deve ser tratado como logo após o final
 // se 'p' antes do início de 's', deve ser tratado cono logo antes do início
-// valores negativos de 'p' referem-se ao final de 's' (-1 é logo após o final de 's',
-//  -2 logo antes do último caractere, etc.)
+// valores negativos de 'p' referem-se ao final de 's'
+//   (-1 é logo após o final de 's', -2 logo antes do último caractere, etc.)
+// posição e tamanho referem-se a caracteres unicode
 void str_altera(Str s, int p, int n, Str o);
 
 #ifdef TESTE

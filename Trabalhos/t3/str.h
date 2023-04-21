@@ -30,7 +30,7 @@ typedef struct _str *Str;
 Str str_cria(char *s);
 
 // cria uma Str a partir de uma linha do arquivo
-// devo conter todos os caracteres lidos do arquivo, antes de um '\n'
+// deve conter todos os caracteres lidos do arquivo, antes de um '\n'
 //   ou do final do arquivo
 // retorna NULL caso o arquivo esteja no final ou em caso de erro no acesso
 // o arquivo está codificado em UTF8
@@ -47,7 +47,7 @@ void str_destroi(Str s);
 // retorna o número de caracteres unicode na string (equivalente a strlen)
 int str_tam(Str s);
 
-// retorna o número de bytes necessárior para representar a string em UTF8
+// retorna o número de bytes necessários para representar a string em UTF8
 int str_numbytes(Str s);
 
 // retorna o i-ésimo caractere unicode de 's' ou -1 se 'i' além dos limites
