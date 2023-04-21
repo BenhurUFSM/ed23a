@@ -61,4 +61,8 @@ bool utf8_prim_valido(char b);
 // retorna true se 'b' pode ser sequência UTF8
 bool utf8_cont_valido(char b);
 
+// retorna a posição onde inicia o n-ésimo caractere unicode codificado
+//   em UTF8 em s, ou NULL caso s tenha menos caracteres
+char *utf8_nesimo_chu(char *s, int n);
+
 #endif // _CHU_H_
