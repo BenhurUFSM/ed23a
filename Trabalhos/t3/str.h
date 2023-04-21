@@ -82,7 +82,7 @@ void str_altera(Str s, int p, int n, Str o);
 
 // copia o conteúdo da string 's', em formato UTF8, terminado por '\0',
 //   para a região apontada por 'p'
-// é responsabilidade de quem chama garantir que tem espaço suficiente em 'p'
+// quem chama deve garantir que tem espaço suficiente em 'p'
 void str_cstring(Str s, char *p);
 
 #ifdef TESTE
