@@ -70,11 +70,13 @@ void str_destroi(Str s)
 
 int str_tam(Str s)
 {
+  if (s == NULL) return 0;
   return strlen(s->bytes);
 }
 
 int str_numbytes(Str s)
 {
+  if (s == NULL) return 0;
   return strlen(s->bytes);
 }
 
@@ -143,9 +145,11 @@ int str_poschar(Str s, chu c)
   return -1;
 }
 
-// retorna 'true' se 's' e 'o' forem iguais
+// retorna 'true' se as strings em 's' e 'o' forem iguais
 bool str_igual(Str s, Str o)
 {
+  if (s == o) return true;
+  if (s == NULL || o == NULL) return false;
   return strcmp(s->bytes, o->bytes) == 0;
 }
 
@@ -188,7 +192,11 @@ void str_altera(Str s, int p, int n, Str o)
 
 void str_cstring(Str s, char *p)
 {
-  strcpy(p, s->bytes);
+  if (s == NULL) {
+    *p = '\0';
+  } else {
+    strcpy(p, s->bytes);
+  }
 }
 
 #ifdef TESTE

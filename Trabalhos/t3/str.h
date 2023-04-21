@@ -68,7 +68,7 @@ Str str_substr(Str s, int p, int n);
 // retorna a posição da primeira ocorrência do caractere 'c' em 's' ou -1
 int str_poschar(Str s, chu c);
 
-// retorna 'true' se 's' e 'o' forem iguais
+// retorna 'true' se as strings em 's' e 'o' forem iguais
 bool str_igual(Str s, Str o);
 
 // altera 's', substituindo os 'n' caracteres a partir de 'p' pelo conteúdo de 'o'
