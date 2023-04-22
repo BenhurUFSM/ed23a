@@ -25,7 +25,7 @@ void tela_cria(void)
   setlocale(LC_ALL, "");   // seleciona o locale (espera-se que tenha UTF8)
 	initscr();               // inicializa o curses
 	noecho();                // não ecoa os caracteres quando são digitados
-	cbreak();	               // não espera 'enter' para retornar digitados
+	raw();//cbreak();	               // não espera 'enter' para retornar digitados
   keypad(stdscr, TRUE);    // processa caracteres especiais (setas etc)
   tela_inicializa_cores();
 	tela_limpa();
@@ -146,7 +146,7 @@ int tela_le_char(void)
       case '\n':
       case '\r':            return c_enter;
       case KEY_SAVE:
-      case CTRL('s'):       return c_save;
+      case CTRL('w'):       return c_save;
       case KEY_OPEN:
       case CTRL('o'):       return c_open;
       case KEY_CLOSE:

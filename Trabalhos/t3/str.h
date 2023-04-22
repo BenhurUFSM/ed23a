@@ -85,6 +85,9 @@ void str_altera(Str s, int p, int n, Str o);
 // quem chama deve garantir que tem espaço suficiente em 'p'
 void str_cstring(Str s, char *p);
 
+// grava a string 's' no arquivo 'arq'
+void str_grava(Str s, FILE *arq);
+
 #ifdef TESTE
 // testa o TAD
 void str_teste(void);

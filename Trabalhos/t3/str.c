@@ -199,6 +199,11 @@ void str_cstring(Str s, char *p)
   }
 }
 
+void str_grava(Str s, FILE *arq)
+{
+  fputs(s->bytes, arq);
+}
+
 #ifdef TESTE
 // testa o TAD
 
