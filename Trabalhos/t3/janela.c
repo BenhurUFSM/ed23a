@@ -41,6 +41,16 @@ static int jan_ccol_tela(Jan self);
 // a string deve já estar cortada para caber na tela
 static void jan_texto_para_linha(Jan self, int lin, int n, char s[n]);
 
+// ajusta a posição do cursor para que fique dentro do texto,
+// e a posição do texto na tela para que o cursor fique na tela
+static void jan_ajusta_cursor(Jan self);
+
+// trata um caractere (textual) digitado
+static void jan_trata_char(Jan self, chu tecla);
+
+// trata um caractere de controle digitado
+static void jan_trata_controle(Jan self, chu tecla);
+
 static int min(int a, int b)
 {
   return a<b ? a : b;
@@ -175,7 +185,7 @@ static void jan_ajusta_cursor(Jan self)
 
 static void jan_texto_para_linha(Jan self, int nlin_tela, int n, char s[n])
 {
-  Str linha;
+  Str linha_txt;
   int nlin_txt = nlin_tela - jan_plin_tela(self) + self->lin_topo;
   linha_txt = txt_linha(self->txt, nlin_txt);
   if (linha_txt == NULL) {
