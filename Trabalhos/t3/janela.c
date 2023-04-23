@@ -4,12 +4,42 @@
 #include <limits.h>
 
 struct _jan {
-  int curlin;
-  int curcol;
-  int lin_topo;
-  int col_esq;
+  int curlin;    // linha do texto onde está o cursor
+  int curcol;    // coluna do texto onde está o cursor
+  int lin_topo;  // linha do texto que está na primeira linha da tela
+  int col_esq;   // coluna do texto que está na primeira coluna da tela
   Txt txt;
 };
+
+// Funções internas
+
+// qual a primeira linha da tela que pode ser usada pela janela
+static int jan_plin_tela(Jan self);
+
+// qual a última linha da tela que pode ser usada pela janela
+static int jan_ulin_tela(Jan self);
+
+// quantas linhas de texto podem ser desenhadas na tela
+static int jan_nlin_tela(Jan self);
+
+// qual a primeira coluna da tela que pode ser usada pela janela
+static int jan_pcol_tela(Jan self);
+
+// qual a última coluna da tela que pode ser usada pela janela
+static int jan_ucol_tela(Jan self);
+
+// quantas colunas da tela podem ser usadas pela janela
+static int jan_ncol_tela(Jan self);
+
+// em que linha da tela está o cursor
+static int jan_clin_tela(Jan self);
+
+// em que coluna da tela está o cursor
+static int jan_ccol_tela(Jan self);
+
+// coloca em 's' a string a desenhar na linha 'lin' da tela
+// a string deve já estar cortada para caber na tela
+static void jan_texto_para_linha(Jan self, int lin, int n, char s[n]);
 
 static int min(int a, int b)
 {
@@ -50,42 +80,80 @@ Txt jan_texto(Jan self)
   return self->txt;
 }
 
-int jan_plin_tela(Jan self)
+void jan_trata_tecla(Jan self, chu tecla)
 {
+  if (tecla > 0) jan_trata_char(self, tecla);
+  else jan_trata_controle(self, tecla);
+  // ajusta a posição do cursor para ficar no texto e na tela
+  jan_ajusta_cursor(self);
+}
+
+void jan_desenha_txt(Jan self)
+{
+  jan_ajusta_cursor(self);
+  // número máximo de bytes para representar uma linha da tela em utf8
+  int tam_lin = (jan_ucol_tela(self) - jan_pcol_tela(self)) * 4 + 1;
+  char s[tam_lin];
+  tela_cor_normal();
+  // desenha as linhas do texto na tela
+  for (int l = jan_plin_tela(self); l < jan_ulin_tela(self); l++) {
+    jan_texto_para_linha(self, l, tam_lin, s);
+    tela_lincol(l, jan_pcol_tela(self));
+    tela_texto(s);
+  }
+  // usa a última linha para colocar informação de posição
+  tela_lincol(jan_ulin_tela(self), jan_pcol_tela(self));
+  tela_cor_selecao();
+  tela_textof("L%d/%d C%d", self->curlin+1, txt_nlin(self->txt),
+                            self->curcol+1);
+  tela_cor_normal();
+  // coloca o cursor no lugar dele
+  tela_lincol(jan_clin_tela(self), jan_ccol_tela(self));
+}
+
+
+
+
+static int jan_plin_tela(Jan self)
+{
+  // deveria ser informado pelo controlador
   return 1;
 }
 
-int jan_ulin_tela(Jan self)
+static int jan_ulin_tela(Jan self)
 {
+  // deveria ser informado pelo controlador
   return tela_nlin()-2;
 }
 
-int jan_nlin_tela(Jan self)
+static int jan_nlin_tela(Jan self)
 {
   return jan_ulin_tela(self) - jan_plin_tela(self) + 1;
 }
 
-int jan_pcol_tela(Jan self)
+static int jan_pcol_tela(Jan self)
 {
+  // deveria ser informado pelo controlador
   return 0;
 }
 
-int jan_ucol_tela(Jan self)
+static int jan_ucol_tela(Jan self)
 {
+  // deveria ser informado pelo controlador
   return tela_ncol()-1;
 }
 
-int jan_ncol_tela(Jan self)
+static int jan_ncol_tela(Jan self)
 {
   return jan_ucol_tela(self) - jan_pcol_tela(self) + 1;
 }
 
-int jan_clin_tela(Jan self)
+static int jan_clin_tela(Jan self)
 {
   return self->curlin - self->lin_topo + jan_plin_tela(self);
 }
 
-int jan_ccol_tela(Jan self)
+static int jan_ccol_tela(Jan self)
 {
   return self->curcol - self->col_esq + jan_pcol_tela(self);
 }
@@ -96,7 +164,7 @@ static void jan_ajusta_cursor(Jan self)
   self->curlin = limita(self->curlin, 0, txt_nlin(self->txt));
   self->curcol = limita(self->curcol,
                         0, txt_tamlin(self->txt, self->curlin));
-  // faz a janela conter o cursor
+  // altera o início do texto na tela para que o cursor fique na tela
   self->lin_topo = limita(self->lin_topo,
                           self->curlin-(jan_nlin_tela(self)-1),
                           self->curlin);
@@ -105,52 +173,48 @@ static void jan_ajusta_cursor(Jan self)
                          self->curcol);
 }
 
-void jan_texto_para_linha(Jan self, int lin, int n, char s[n])
+static void jan_texto_para_linha(Jan self, int nlin_tela, int n, char s[n])
 {
-  s[0] = '\0';
-  Str linha = txt_linha(self->txt, lin-jan_plin_tela(self)+self->lin_topo);
-  if (linha == NULL) return;
+  Str linha;
+  int nlin_txt = nlin_tela - jan_plin_tela(self) + self->lin_topo;
+  linha_txt = txt_linha(self->txt, nlin_txt);
+  if (linha_txt == NULL) {
+    s[0] = '\0';
+    return;
+  }
+  // quantos caracteres cabem em uma linha da tela
   int nchar = jan_ucol_tela(self)-jan_pcol_tela(self);
-  Str sub = str_substr(linha, self->col_esq, nchar);
+  // corta a linha do texto, pega só a substring que aparece na tela
+  Str sub = str_substr(linha_txt, self->col_esq, nchar);
   str_cstring(sub, s);
   str_destroi(sub);
 }
 
-void jan_desenha_txt(Jan self)
-{
-  jan_ajusta_cursor(self);
-  int tam_lin = (jan_ucol_tela(self)-jan_pcol_tela(self))*4+1;
-  char s[tam_lin];
-  tela_cor_normal();
-  for (int l = jan_plin_tela(self); l < jan_ulin_tela(self); l++) {
-    jan_texto_para_linha(self, l, tam_lin, s);
-    tela_lincol(l, jan_pcol_tela(self));
-    tela_texto(s);
-  }
-  tela_lincol(jan_ulin_tela(self), jan_pcol_tela(self));
-  tela_cor_selecao();
-  tela_textof("L%d C%d", self->curlin+1, self->curcol+1);
-  tela_cor_normal();
-  tela_lincol(jan_clin_tela(self), jan_ccol_tela(self));
-}
-
+// trata um caractere digitado
+// o editor está sempre em modo de inserção, então
+// insere o caractere na posição do cursor do texto
+// (poderia suportar substituição também)
 static void jan_trata_char(Jan self, chu tecla)
 {
   txt_insere_char(self->txt, self->curlin, self->curcol, tecla);
   self->curcol++;
 }
 
+// foi digitado um enter, quebra a linha
 static void jan_enter(Jan self)
 {
   txt_quebra_linha(self->txt, self->curlin, self->curcol);
   self->curlin++;
   self->curcol = 0;
 }
+
+// foi digitado del, apaga o caractere no cursor
 static void jan_delete(Jan self)
 {
   txt_remove_char(self->txt, self->curlin, self->curcol);
 }
 
+// foi digitado backspace, volta um caractere e faz de conta que foi del
 static void jan_backspace(Jan self)
 {
   if (self->curcol > 0) {
@@ -166,6 +230,7 @@ static void jan_backspace(Jan self)
   jan_delete(self);
 }
 
+// trata um caractere de controle digitado
 static void jan_trata_controle(Jan self, chu tecla)
 {
   switch (tecla) {
@@ -205,11 +270,4 @@ static void jan_trata_controle(Jan self, chu tecla)
     default:
       break;
   }
-}
-
-void jan_trata_tecla(Jan self, chu tecla)
-{
-  if (tecla > 0) jan_trata_char(self, tecla);
-  else jan_trata_controle(self, tecla);
-  jan_ajusta_cursor(self);
 }

@@ -25,7 +25,7 @@ void tela_cria(void)
   setlocale(LC_ALL, "");   // seleciona o locale (espera-se que tenha UTF8)
 	initscr();               // inicializa o curses
 	noecho();                // não ecoa os caracteres quando são digitados
-	raw();//cbreak();	               // não espera 'enter' para retornar digitados
+	raw();                   // não espera 'enter' para retornar digitados
   keypad(stdscr, TRUE);    // processa caracteres especiais (setas etc)
   tela_inicializa_cores();
 	tela_limpa();
@@ -129,7 +129,7 @@ int tela_le_char(void)
     pendentes[npendentes++] = c;
     return c_none;
   } else {
-    // caractere especial
+    // vê se é um caractere especial conhecido
     switch (c) {
       case KEY_UP:          return c_up;
       case KEY_DOWN:        return c_down;
@@ -154,6 +154,7 @@ int tela_le_char(void)
       case KEY_SHOME:       return c_previous;
       case KEY_SEND:        return c_next;
       case KEY_MOUSE:
+                            // TODO: tratar eventos do mouse
       case KEY_RESIZE:
       default:
                             return c_none;

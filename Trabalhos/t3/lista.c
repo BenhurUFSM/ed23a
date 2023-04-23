@@ -1,6 +1,11 @@
 #include "lista.h"
 #include <stdlib.h>
 
+// implementação fajuta de lista, usando um vetor de tamanho fixo
+//
+// deve ser reimplementada como uma lista duplamente encadeada com
+//   alocação dinâmica de cada nó.
+
 struct _lista {
   void *dados[50];
   int ndados;

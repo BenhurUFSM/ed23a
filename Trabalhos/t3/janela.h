@@ -1,36 +1,28 @@
 #ifndef _JANELA_H_
 #define _JANELA_H_
 
+// janela
+// ------
+// TAD que permite alterar um texto e apresentá-lo na tela
+
 #include "texto.h"
 
 typedef struct _jan *Jan;
 
+// cria uma janela para editar o texto 'txt'
 Jan jan_cria(Txt txt);
 
+// libera a memória da janela (mas não destroi o texto)
 void jan_destroi(Jan self);
 
+// retorna o texto sendo editado pela janela
 Txt jan_texto(Jan self);
 
-int jan_plin_tela(Jan self);
-
-int jan_ulin_tela(Jan self);
-
-int jan_nlin_tela(Jan self);
-
-int jan_pcol_tela(Jan self);
-
-int jan_ucol_tela(Jan self);
-
-int jan_ncol_tela(Jan self);
-
-int jan_clin_tela(Jan self);
-
-int jan_ccol_tela(Jan self);
-
-void jan_texto_para_linha(Jan self, int lin, int n, char s[n]);
-
+// desenha o texto na tela
 void jan_desenha_txt(Jan self);
 
+// trata uma tecla digitada pelo usuário
+// pode ser um caractere ou uma tecla de controle
 void jan_trata_tecla(Jan self, chu tecla);
 
 #endif // _JANELA_H_

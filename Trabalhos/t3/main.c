@@ -9,9 +9,12 @@
 
 int main(int argc, char *argv[argc])
 {
+  // inicializa a tela e cria um controlador
   tela_cria();
   Ctrl controlador = ctrl_cria();
 
+  // abre os arquivos passados pelo usuário na linha de comando
+  // ou um sem nome se o usuário não passou nenhum
   if (argc == 1) {
     Str nome = str_cria("sem_nome");
     ctrl_abre_nome(controlador, nome);
@@ -23,8 +26,10 @@ int main(int argc, char *argv[argc])
     str_destroi(nome);
   }
 
+  // faz a edição
   ctrl_laco_principal(controlador);
 
+  // libera o que foi alocado
   ctrl_destroi(controlador);
   tela_destroi();
    

@@ -43,8 +43,8 @@ void tela_cor_normal(void);
 void tela_cor_selecao(void);
 
 // retorna o próximo caractere da entrada, que pode ser um caractere unicode
-//   ou um caractere especial de controle (com código negativo) ou 'c_none'
-//   se não houver caractere disponível na entrada
+//   ou um caractere especial de controle (com código negativo)
+//   ou 'c_none' se não houver caractere disponível na entrada
 chu tela_le_char(void);
 
 #endif // TELA_H

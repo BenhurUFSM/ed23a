@@ -90,6 +90,7 @@ bool utf8_prim_valido(char b)
 
 bool utf8_cont_valido(char b)
 {
+  // bytes de continuação UTF8 iniciam com 10 em binário
   return (b & 0b11000000) == 0b10000000;
 }
 
@@ -97,8 +98,11 @@ char *utf8_nesimo_chu(char *s, int n)
 {
   int ct = 0;
   while (*s != '\0') {
+    // se chegou no n-ésimo caractere, retorna o ponteiro
     if (ct == n) return s;
+    // avança o número de bytes necessários para o caractere
     s += utf8_num_bytes(*s);
+    // um caractere a mais
     ct++;
   }
   return NULL;
