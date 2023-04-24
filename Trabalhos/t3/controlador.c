@@ -117,11 +117,11 @@ void ctrl_abre(Ctrl self)
 
 void ctrl_laco_principal(Ctrl self)
 {
-  while(lista_nelem(self->janelas) > 0) {	
+  while(lista_nelem(self->janelas) > 0) {
     ctrl_desenha_tela(self);
     // lê um caractere, trata se for o caso, repassa pra janela se não
     int c = tela_le_char();
-		switch(c) {	
+    switch(c) {
       case c_save:
         ctrl_grava(self);
         break;
@@ -140,7 +140,7 @@ void ctrl_laco_principal(Ctrl self)
       default:
         jan_trata_tecla(self->jan_atual, c);
     }
-	}	
+  }
 }
 
 

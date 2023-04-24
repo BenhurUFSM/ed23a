@@ -23,18 +23,18 @@ static void tela_inicializa_cores(void)
 void tela_cria(void)
 {
   setlocale(LC_ALL, "");   // seleciona o locale (espera-se que tenha UTF8)
-	initscr();               // inicializa o curses
-	noecho();                // não ecoa os caracteres quando são digitados
-	raw();                   // não espera 'enter' para retornar digitados
+  initscr();               // inicializa o curses
+  noecho();                // não ecoa os caracteres quando são digitados
+  raw();                   // não espera 'enter' para retornar digitados
   keypad(stdscr, TRUE);    // processa caracteres especiais (setas etc)
   tela_inicializa_cores();
-	tela_limpa();
-	tela_atualiza();
+  tela_limpa();
+  tela_atualiza();
 }
 
 void tela_destroi(void)
 {
-	endwin();                // finaliza o curses
+  endwin();                // finaliza o curses
 }
 
 void tela_limpa(void)

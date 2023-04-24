@@ -33,7 +33,7 @@ int main(int argc, char *argv[argc])
   ctrl_destroi(controlador);
   tela_destroi();
    
-	return 0;
+  return 0;
 }
 
 
