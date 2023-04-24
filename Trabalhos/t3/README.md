@@ -22,3 +22,6 @@ Para executar, passe nomes de arquivos a editar na linha de comando:
 ```
 
 Na edição, dá para usar ctrl-o para abrir outro arquivo, ctrl-w para gravar, ctrl-x para fechar (só fecha se tiver gravado), shift-home e shift-end para trocar de arquivo se tiver editando mais de um. O programa termina quando fechar todos os arquivos.
+
+Foi utilizada a biblioteca ncurses.
+O código está rodando no [replit](https://replit.com/@BenhurStein/ed-t3), pode fazer um fork.
