@@ -25,3 +25,5 @@ Na edição, dá para usar ctrl-o para abrir outro arquivo, ctrl-w para gravar, 
 
 Foi utilizada a biblioteca [ncurses](https://invisible-island.net/ncurses/ncurses.html).
 O código está rodando no [replit](https://replit.com/@BenhurStein/ed-t3), pode fazer um fork e editar ali, se tiver com problemas de instalação local.
+
+Entrega: anexe os arquivos (ou algo como um zip) em um mail para benhur+ed23a@inf.ufsm.br com assunto "ed t3 nome", com nome substituído por algo que me permita identificar na chamada.
