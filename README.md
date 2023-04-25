@@ -34,6 +34,8 @@ Os assuntos vistos em aula serão listados aqui.
 |    7 | 10abr | [listas encadeadas, alocação individual](Aulas/lista_encadeada_com_ponteiros.md)
 |    8 | 12abr | [listas duplamente encadeadas, complementos](Aulas/lista_duplamente_encadeada.md)
 |    9 | 17abr | [matrizes](Aulas/matrizes.md)
+|   10 | 19abr | t2
+|   11 | 24abr | Conjunto, Dicionário, Tabela de Dispersão (Hash)
 
 ## Exercícios e trabalhos
 
@@ -43,7 +45,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 | ----: | -------: | :-----------
 |    t1 |      --- | [cálculo de notas](Trabalhos/t1.md) [[exemplo de implementação](Trabalhos/t1-ed23a.c)]
 |    t2 |          | [TAD string](Trabalhos/t2.md)
-|    t3 |          | [TAD lista](Trabalhos/t3)
+|    t3 |     3mai | [TAD lista](Trabalhos/t3)
 
 
 ## Ementa
