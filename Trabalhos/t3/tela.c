@@ -97,7 +97,7 @@ void tela_textof(char *txt, ...)
   tela_texto(s);
 }
 
-int tela_le_char(void)
+chu tela_le_char(void)
 {
   static char pendentes[5];  // caracteres utf8 sendo juntados
   static int npendentes = 0; // quantos já foram juntados
