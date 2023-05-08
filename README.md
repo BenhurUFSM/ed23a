@@ -36,6 +36,9 @@ Os assuntos vistos em aula serão listados aqui.
 |    9 | 17abr | [matrizes](Aulas/matrizes.md)
 |   10 | 19abr | t2
 |   11 | 24abr | Conjunto, Dicionário, Tabela de Dispersão (Hash)
+|   12 | 26abr | t2
+|   13 |  3mai | t2
+|   14 |  8mai | [Árvores](Aulas/arvores.md)
 
 ## Exercícios e trabalhos
 
