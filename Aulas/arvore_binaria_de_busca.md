@@ -243,3 +243,10 @@ Caso a remoção do dado seja algo mais complicado (por exemplo, se o dado é um
     remove(a->esq, valor); // ou curto-circuita, e chama remove(no_menor, valor)
     ... 
 ```
+
+### Exercícios
+
+1. Implemente uma ABB para conter inteiros.
+2. Teste sua árvore.
+3. Insira 100000 números aleatórios na árvore. Com que altura a árvore ficou?
+4. Insira 1000 números em ordem em uma árvore inicialmente vazia. Com que altura ela ficou?
