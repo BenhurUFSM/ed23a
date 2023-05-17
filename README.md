@@ -38,7 +38,9 @@ Os assuntos vistos em aula serão listados aqui.
 |   11 | 24abr | Conjunto, Dicionário, Tabela de Dispersão (Hash)
 |   12 | 26abr | t2
 |   13 |  3mai | t2
-|   14 |  8mai | [Árvores](Aulas/arvores.md)
+|   14 |  8mai | [árvores](Aulas/arvores.md)
+|   15 | 10mai | árvores
+|   16 | 15mai | [árvores binárias de busca](Aulas/arvore_binaria_de_busca.md)
 
 ## Exercícios e trabalhos
 
