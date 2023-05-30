@@ -43,6 +43,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   16 | 15mai | [árvores binárias de busca](Aulas/arvore_binaria_de_busca.md)
 |   17 | 22mai | [arvores AVL](Aulas/arvore_avl.md)
 |   18 | 24mai | [fila de prioridade, heap](Aulas/heap.md)
+|   19 | 29mai | [grafos](Aulas/grafo.md)
 
 ## Exercícios e trabalhos
 
