@@ -44,6 +44,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   17 | 22mai | [arvores AVL](Aulas/arvore_avl.md)
 |   18 | 24mai | [fila de prioridade, heap](Aulas/heap.md)
 |   19 | 29mai | [grafos](Aulas/grafo.md)
+|   20 | 31mai | [implementação de grafos, deteção de ciclos](Aulas/grafo2.md)
 
 ## Exercícios e trabalhos
 
