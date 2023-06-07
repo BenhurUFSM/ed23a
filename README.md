@@ -45,6 +45,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   18 | 24mai | [fila de prioridade, heap](Aulas/heap.md)
 |   19 | 29mai | [grafos](Aulas/grafo.md)
 |   20 | 31mai | [implementação de grafos, deteção de ciclos](Aulas/grafo2.md)
+|   21 |  5jun | [ordem topológica](Aulas/grafo3.md)
 
 ## Exercícios e trabalhos
 
