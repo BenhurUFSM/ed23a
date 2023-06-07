@@ -137,3 +137,4 @@ O código visto em aula está em [gra2.c](gra2.c).
    ```
 2. No grafo do exercício anterior, cada aresta representa uma ação que demora tempo 1 para ser realizada; ações podem ser realizadas concorrentemente; uma ação só pode ser realizada após todas as que a precedem no grafo. Qual o tempo mínimo para realizar todas as ações representadas no grafo?
 
+3. Considere o grafo orientado com as arestas *ae,af,al,be,bi,bc,cf,cg,cj,dc,dg,dn,eh,fi,fm,gf,ih,jk,jl,kn,mj*, dê uma possível ordenação topológica para os nós do grafo.
