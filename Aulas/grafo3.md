@@ -127,7 +127,6 @@ pilha ordem_topologica(int n_nos, bool grafo[n_nos][n_nos])
 }
 ```
 
-O código visto em aula está em [gra2.c](gra2.c).
 
 #### Exercícios
 
