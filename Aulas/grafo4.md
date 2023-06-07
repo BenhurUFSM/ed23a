@@ -105,5 +105,7 @@ grafo kruskal(grafo g) {
 }
 ```
 
+#### Exercício
 
+1. Aplique os algoritmos de Prim e de Kruskal no grafo não orientado com as arestas *ab4,ah8,bh11,bc8,hi7,ic2,hg1,ig6,cd7,cf4,gf2,df14,de9,fe10*, partindo do nó *a*.
 
