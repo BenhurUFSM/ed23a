@@ -13,7 +13,7 @@ Esse grafo tem 3 árvores geradoras: `ac,bc,cd,ce`, `ac,bc,cd,de` e `ac,bc,ce,de
 
 Uma árvore geradora pode ser representada por um vetor de pais: um vetor com um elemento para cada nó, contendo a identificação do nó que é pai dele na árvore.
 É comum usar essa representação quando se constrói a árvore geradora com um algoritmo de percurso, o pai de um nó sendo aquele de onde se chega ao nó pela primeira vez.
-Existem vários vetores de pais possíveis para representar a mesma árvore geradora (c cada um dos nós como raiz).
+Existem vários vetores de pais possíveis para representar a mesma árvore geradora (com cada um dos nós como raiz).
 Por exemplo, a última árvore geradora acima (`ac,bc,ce,de`) poderia ser representada por `-caec`, `c-bec`, `cc-ec`, `cce-d` ou `ccee-` (`-` é colocado como pai do nó raiz).
 
 Em um grafo ponderado, com valores associados a suas arestas, o custo de uma árvore geradora é a soma dos valores de suas arestas.
