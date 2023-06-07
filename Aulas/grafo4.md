@@ -2,7 +2,7 @@
 
 ### Árvore geradora
 
-Um grafo não orientado, acíclico, conexo é uma árvore. Uma árvore com N nós possui N-1 arestas. Se se adiciona uma nova aresta, será gerado um ciclo. Se se remove uma aresta, o grafo deixa de ser conexo. Se o grafo é orientado, deve possuir um único nó que é fonte (só tem arestas que saem nele): esse nó é a raiz da árvore, dita "racinada".
+Um grafo não orientado, acíclico, conexo é uma árvore. Uma árvore com N nós possui N-1 arestas. Se se adiciona uma nova aresta, será gerado um ciclo. Se se remove uma aresta, o grafo deixa de ser conexo.
 
 Qualquer subgrafo de um grafo não orientado que seja uma árvore é chamado de sub-árvore desse grafo. Qualquer sub-árvore de um grafo que contenha todos os nós do grafo é chamada de **árvore geradora** do grafo (*spanning tree* em inglês). Todo grafo não orientado conexo tem pelo menos uma árvore geradora.
 
