@@ -46,6 +46,7 @@ Os assuntos vistos em aula serão listados aqui.
 |   19 | 29mai | [grafos](Aulas/grafo.md)
 |   20 | 31mai | [implementação de grafos, deteção de ciclos](Aulas/grafo2.md)
 |   21 |  5jun | [ordem topológica](Aulas/grafo3.md)
+|   22 |  7jun | [árvore geradora](Aulas/grafo4.md)
 
 ## Exercícios e trabalhos
 
