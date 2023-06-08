@@ -105,7 +105,7 @@ grafo kruskal(grafo g) {
 }
 ```
 
-#### Exercício
+#### Exercícios
 
 1. Aplique os algoritmos de Prim e de Kruskal no grafo não orientado com as arestas *ab4,ah8,bh11,bc8,hi7,ic2,hg1,ig6,cd7,cf4,gf2,df14,de9,fe10*, partindo do nó *a*.
-
+2. Tente os exercícios 11 e 12 da lista 1 em (https://www.ime.usp.br/~pf/algoritmos_para_grafos/aulas/mst.html#:~:text=Uma%20%C3%A1rvore%20geradora%20m%C3%ADnima%20de,MST%20de%20minimum%20spanning%20tree.)
