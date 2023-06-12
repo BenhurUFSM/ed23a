@@ -17,7 +17,7 @@ O algoritmo de Dijkstra então é algo como:
     }
     distancia[inicial] = 0;
     while (tem nó não visitado) {
-      n = nó não visitado com menor distancia[n];
+      n = nó não visitado com menor distancia;
       visitado[n] = true;
       for (a = cada aresta que parte de n) {
         d = destino(a);
