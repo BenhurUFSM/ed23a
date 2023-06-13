@@ -32,3 +32,7 @@ O **arquivo de locais a visitar** deve conter a identificação de um local em c
 O **arquivo de saída** contém um local por linha, que é o caminho a ser percorrido para se passar por todos os locais que se quer visitar (provavelmente incluindo também outros locais de passagem).
 Cada linha contém a latitude, longitude, identificação e descrição de um local.
 Esse arquivo deve estar em formato csv, com os valores separados por vírgula, e strings entre aspas.
+
+### TADs
+
+O grafo deve ser implementado conforme [grafo.h].
