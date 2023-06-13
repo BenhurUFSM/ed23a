@@ -58,6 +58,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 |    t1 |      --- | [cálculo de notas](Trabalhos/t1.md) [[exemplo de implementação](Trabalhos/t1-ed23a.c)]
 |    t2 |          | [TAD string](Trabalhos/t2.md)
 |    t3 |     3mai | [TAD lista](Trabalhos/t3)
+|    t4 |    10jul | [passeio na UFSM](Trabalhos/t4)
 
 
 ## Ementa
