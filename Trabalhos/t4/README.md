@@ -35,4 +35,5 @@ Esse arquivo deve estar em formato csv, com os valores separados por vírgula, e
 
 ### TADs
 
-O grafo deve ser implementado conforme [grafo.h].
+O grafo deve ser implementado conforme [grafo.h](grafo.h).
+Outras estruturas (lista, fila, de busca, etc) devem ser implementadas como TADs (um arquivo .h e um .c para cada TAD, com acesso aos dados internos do TAD limitados ao .c, só com funções relativas ao TAD).
