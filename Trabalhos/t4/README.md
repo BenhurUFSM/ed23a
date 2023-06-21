@@ -29,9 +29,23 @@ O custo de um caminho é a distância entre os dois locais que ele interliga (ca
 
 O **arquivo de locais a visitar** deve conter a identificação de um local em cada linha não vazia. O primeiro desses locais é o local de partida, os demais são locais a visitar, sem ordem específica.
 
-O **arquivo de saída** contém um local por linha, que é o caminho a ser percorrido para se passar por todos os locais que se quer visitar (provavelmente incluindo também outros locais de passagem).
-Cada linha contém a latitude, longitude, identificação e descrição de um local.
-Esse arquivo deve estar em formato csv, com os valores separados por vírgula, e strings entre aspas.
+O **arquivo de saída** deve estar no formato [[map]bbcode](http://mapbbcode.org/). Esse formato começa por `\[map]` e termina por `\[/map]`. Dentro, pode conter locais ou caminhos, separados por `;`. Um local contém latitude e longitude separados por vírguna e nome entre parênteses (por exemplo, `-29.72074,-53.7149(Reitoria da UFSM)`). Um caminho contém uma sequência de coordenadas separadas por espaço, uma coordenada é latitude e longitude separados por vírgula (por exemplo, `-29.72074,-53.7149 -29.720763,-53.715030 -29.720522,-53.715022`).
+
+O arquivo deve conter o local de partida, seguido pelo caminho até o segundo local, seguido pelo segundo local, seguido pelo caminho até o terceiro local, seguido pelo terceiro local etc.
+
+O primeiro local é o primeiro do arquivo de locais a visitar; o segundo é um outro local desse arquivo, aquele que tem o caminho mais curto a partir do primeiro; o terceiro é um outro local desse arquivo, aquele que tem o caminho mais curto a partir do segundo etc.
+
+Por exemplo, o arquivo de saída para um caminho entre a reitoria e o CPD poderia conter:
+```
+[map]
+-29.72074,-53.7149(Reitoria da UFSM);
+-29.72074,-53.7149 -29.72076,-53.71503 -29.72058,-53.71504 -29.7204,-53.71373 -29.72083,-53.71365;
+-29.72083,-53.71365(CPD)
+[/map]
+```
+
+Essa saída pode ser visualizada em (http://share.mapbbcode.org/), colando o conteúdo do arquivo na janela que abre quando clica em "Edit Raw".
+
 
 ### TADs
 
