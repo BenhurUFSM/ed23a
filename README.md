@@ -48,6 +48,9 @@ Os assuntos vistos em aula serão listados aqui.
 |   21 |  5jun | [ordem topológica](Aulas/grafo3.md)
 |   22 |  7jun | [árvore geradora](Aulas/grafo4.md)
 |   23 | 12jun | [caminho mais curto](Aulas/grafo5.md)
+|   24 | 14jun | t4
+|   25 | 19jun | t4
+|   26 | 21jun | t4
 
 ## Exercícios e trabalhos
 
