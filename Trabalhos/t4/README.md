@@ -51,3 +51,16 @@ Essa saída pode ser visualizada em (http://share.mapbbcode.org/), colando o con
 
 O grafo deve ser implementado conforme [grafo.h](grafo.h).
 Outras estruturas (lista, fila, de busca, etc) devem ser implementadas como TADs (um arquivo .h e um .c para cada TAD, com acesso aos dados internos do TAD limitados ao .c, só com funções relativas ao TAD).
+
+### Dicas
+
+#### Distância entre 2 coordenadas
+
+Não necessitamos de uma precisão muito grande.
+Podemos aproximar o cálculo supondo que o planeta é uma esfera, e que o câmpus é um espaço 2d.
+Só queremos calcular a distância entre duas coordenadas.
+Dá para dividir em uma distância norte-sul (diferença entre latitudes) e uma distância leste-oeste (diferença entre longitudes), e depois considerar que essas distâncias são catetos de um triângulo retângulo cuja hipotenusa é o valor da distância que queremos.
+
+90 graus de diferença de latitude correspondem a um quarto da circunferência da terra ou 10000km.
+
+90 graus de diferença de longitude correspondem a um quarto da circunferência de um círculo que corta a terra horizontalmente na latitude considerada. Um quarto da circunferência desse círculo é cos(latitude)*10000km.
