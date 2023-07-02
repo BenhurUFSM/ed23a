@@ -61,7 +61,7 @@ A descrição dos trabalhos a entregar será colocada aqui.
 |    t1 |      --- | [cálculo de notas](Trabalhos/t1.md) [[exemplo de implementação](Trabalhos/t1-ed23a.c)]
 |    t2 |          | [TAD string](Trabalhos/t2.md)
 |    t3 |     3mai | [TAD lista](Trabalhos/t3)
-|    t4 |   antes de 10jul | [passeio na UFSM](Trabalhos/t4)<br>21jun - alteração do formato de saída
+|    t4 |   **antes de** 10jul | [passeio na UFSM](Trabalhos/t4)<br>21jun - alteração do formato de saída
 
 ## Entrega Final
 
@@ -81,7 +81,7 @@ Pode também conter avaliação sobre como a disciplina foi conduzida pelo profe
 Para facilitar na quantificação do segundo número, você pode considerar como está o seu conhecimento nos assuntos abaixo (coloquei 10 itens, pontue cada um entre 0 e 1 e some):
 1. tipos abstratos de dados (TAD)
 1. como implementar TADs em C
-2. uso de alocação dinâmica de mamória
+2. uso de alocação dinâmica de memória
 3. estruturas lineares (listas, filas, pilhas, deques)
 4. implementação de TADs de estruturas lineares (alocação contígua, alocação encadeada simples ou dupla)
 5. árvores
