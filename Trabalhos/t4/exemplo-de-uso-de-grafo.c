@@ -33,6 +33,7 @@ int main()
   printf("Arestas que partem do nó 3 depois da remoção:\n");
   g_arestas_que_partem(g, 3);
   // não deve imprimir nada
+  // ERRATA deve imprimir a 3->1
   while (g_proxima_aresta(g, &o, &d, &p)) {
     printf("%d -> %d (%.2f)\n", o, d, p);
   }
