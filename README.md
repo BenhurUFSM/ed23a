@@ -5,6 +5,12 @@ ELC1066 DLSC/CT/UFSM\
 professor: Benhur Stein ([benhur+ed23a@inf.ufsm.br](mailto:benhur%2bed23a@inf.ufsm.br))\
 segundas e quartas, 10h30, sala 334, prédio 7 (principal do CT)
 
+## Notas
+
+As notas estão na [planilha](https://docs.google.com/spreadsheets/d/1afGkzsOsM4dB0aYUoUyLZtTgvNbERXJFxhRhry5xpqc/edit?usp=sharing).
+O exame será dia quasta 19jul, no horário e local das aulas.
+
+
 ## Desenvolvimento da disciplina
 
 Os canais de comunicação entre o professor e os alunos são as aulas presenciais, esta página (<https://github.com/BenhurUFSM/ed23a>), e-mail (ver acima). Caso queira conversar fora desses canais, manda um mail que marcamos.
