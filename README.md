@@ -10,6 +10,8 @@ segundas e quartas, 10h30, sala 334, prédio 7 (principal do CT)
 As notas estão na [planilha](https://docs.google.com/spreadsheets/d/1afGkzsOsM4dB0aYUoUyLZtTgvNbERXJFxhRhry5xpqc/edit?usp=sharing).
 O exame será dia quarta 19jul, no horário e local das aulas.
 
+O trabalho entregue dia 16 foi contabilizado como exame.
+Quem não entregou, avaliei pelo que tinha recebido antes.
 
 ## Desenvolvimento da disciplina
 
